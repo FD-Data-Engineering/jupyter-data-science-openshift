@@ -3,49 +3,8 @@ apiVersion: route.openshift.io/v1
 metadata:
   name: prod-jupyter-data-science
   namespace: jupyter-data-science
-  uid: 1bd4ba67-fe9b-4dfb-80bd-cf0a4598c8fa
-  resourceVersion: "51810058"
-  creationTimestamp: "2023-02-13T14:57:57Z"
   labels:
     app.kubernetes.io/instance: prod-jupyter-data-science
-  managedFields:
-    - manager: Mozilla
-      operation: Update
-      apiVersion: route.openshift.io/v1
-      time: "2023-02-13T15:08:55Z"
-      fieldsType: FieldsV1
-      fieldsV1:
-        "f:metadata":
-          "f:labels":
-            .: {}
-            "f:app.kubernetes.io/instance": {}
-        "f:spec":
-          "f:host": {}
-          "f:port":
-            .: {}
-            "f:targetPort": {}
-          "f:tls":
-            .: {}
-            "f:insecureEdgeTerminationPolicy": {}
-            "f:key": {}
-            "f:termination": {}
-          "f:to":
-            "f:kind": {}
-            "f:name": {}
-            "f:weight": {}
-          "f:wildcardPolicy": {}
-    - manager: openshift-router
-      operation: Update
-      apiVersion: route.openshift.io/v1
-      time: "2023-02-13T15:08:55Z"
-      fieldsType: FieldsV1
-      fieldsV1:
-        "f:spec":
-          "f:tls":
-            "f:certificate": {}
-        "f:status":
-          "f:ingress": {}
-      subresource: status
 spec:
   host: >-
     prod-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud
@@ -194,7 +153,6 @@ status:
       conditions:
         - type: Admitted
           status: "True"
-          lastTransitionTime: "2023-02-13T15:08:55Z"
       wildcardPolicy: None
       routerCanonicalHostname: >-
         router-default.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud
