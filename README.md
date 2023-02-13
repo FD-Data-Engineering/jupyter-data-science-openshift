@@ -1,1 +1,1 @@
-# -jupyter-data-science-openshift
+# jupyter-data-science-openshift

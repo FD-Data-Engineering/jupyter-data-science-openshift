@@ -1,0 +1,10 @@
+kind: ServiceAccount
+apiVersion: v1
+metadata:
+  name: jupyter-data-science-svc-acc
+  labels:
+    tier: jupyter
+    component: jupyter-data-science
+    release: jupyter-data-science
+    chart: "jupyter-data-science"
+    heritage: Helm
