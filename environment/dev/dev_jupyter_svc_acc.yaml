@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: dev-jupyter-data-science
+  labels:
+    app: dev-jupyter-data-science
+  namespace: dev-jupyter-data-science
+spec:
+  serviceAccountName: dev-jupyter-data-science-svc-acc
+  containers:
+    - name: dev-jupyter-data-science
+      image: "jpacerqueira83/jupyter_datascience:latest-stable-version-2.4.5"
+      ports:
+        - containerPort: 9003
