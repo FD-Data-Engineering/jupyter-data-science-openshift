@@ -11,4 +11,4 @@ spec:
     - name: dev-jupyter-data-science
       image: "docker.io/thescomcontainers/jupyterlightweight:1.0.0"
       ports:
-        - containerPort: 10000
+        - containerPort: 8888
