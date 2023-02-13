@@ -1,14 +1,10 @@
+kind: ServiceAccount
 apiVersion: v1
-kind: Pod
 metadata:
-  name: dev-jupyter-data-science
+  name: dev-jupyter-data-science-svc-acc
   labels:
-    app: dev-jupyter-data-science
-  namespace: dev-jupyter-data-science
-spec:
-  serviceAccountName: dev-jupyter-data-science-svc-acc
-  containers:
-    - name: dev-jupyter-data-science
-      image: "jpacerqueira83/jupyter_datascience:latest-stable-version-2.4.5"
-      ports:
-        - containerPort: 9003
+    tier: dev-jupyter
+    component: dev-jupyter-data-science
+    release: dev-jupyter-data-science
+    chart: "dev-jupyter-data-science"
+    heritage: Helm

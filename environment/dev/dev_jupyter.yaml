@@ -1,10 +1,14 @@
-kind: ServiceAccount
 apiVersion: v1
+kind: Pod
 metadata:
-  name: dev-jupyter-data-science-svc-acc
+  name: dev-jupyter-data-science
   labels:
-    tier: dev-jupyter
-    component: dev-jupyter-data-science
-    release: dev-jupyter-data-science
-    chart: "dev-jupyter-data-science"
-    heritage: Helm
+    app: dev-jupyter-data-science
+  namespace: dev-jupyter-data-science
+spec:
+  serviceAccountName: dev-jupyter-data-science-svc-acc
+  containers:
+    - name: dev-jupyter-data-science
+      image: "docker.io/thescomcontainers/jupyterlightweight:1.0.0"
+      ports:
+        - containerPort: 10000

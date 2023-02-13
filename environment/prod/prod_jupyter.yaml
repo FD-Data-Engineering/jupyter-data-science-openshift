@@ -1,10 +1,14 @@
-kind: ServiceAccount
 apiVersion: v1
+kind: Pod
 metadata:
-  name: jupyter-data-science-svc-acc
+  name: prod-jupyter-data-science
   labels:
-    tier: jupyter
-    component: jupyter-data-science
-    release: jupyter-data-science
-    chart: "jupyter-data-science"
-    heritage: Helm
+    app: prod-jupyter-data-science
+  namespace: jupyter-data-science
+spec:
+  serviceAccountName: jupyter-data-science-svc-acc
+  containers:
+    - name: prod-jupyter-data-science
+      image: "jpacerqueira83/jupyter_datascience:latest-stable-version-2.4.5"
+      ports:
+        - containerPort: 9003
