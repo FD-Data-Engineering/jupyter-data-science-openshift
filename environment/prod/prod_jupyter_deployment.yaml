@@ -18,8 +18,7 @@ spec:
       serviceAccountName: jupyter-data-science-svc-acc
       containers:
         - name: prod-jupyter-data-science
-          image: >-
-            image: "jpacerqueira83/jupyter_datascience:latest-stable-version-2.4.5"
+          image: "jpacerqueira83/jupyter_datascience:latest-stable-version-2.4.5"
           ports:
             - containerPort: 9003
           resources: {}
