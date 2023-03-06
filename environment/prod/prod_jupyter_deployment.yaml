@@ -1,32 +1,40 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: prod-jupyter-data-science
+  annotations:
+    kompose.cmd: kompose convert -f docker-compose.yml
+    kompose.version: 1.26.1 (a9d05d509)
+  creationTimestamp: null
   labels:
-    app: prod-jupyter-data-science
-  namespace: jupyter-data-science
+    io.kompose.service: prod-jupyter-data-science
+  name: prod-jupyter-data-science
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: prod-jupyter-data-science
-  replicas: 1
+      io.kompose.service: prod-jupyter-data-science
+  strategy:
+    type: Recreate
   template:
     metadata:
+      annotations:
+        kompose.cmd: kompose convert -f docker-compose.yml
+        kompose.version: 1.26.1 (a9d05d509)
+      creationTimestamp: null
       labels:
-        app: prod-jupyter-data-science
+        io.kompose.service: prod-jupyter-data-science
     spec:
       serviceAccountName: jupyter-data-science-svc-acc
       containers:
         - name: prod-jupyter-data-science
           image: "jpacerqueira83/jupyter_datascience:latest-stable-version-2.4.5"
-          ports:
-            - containerPort: 9003
           resources: {}
           volumeMounts:
             - name: notebook-pv
               mountPath: /home/notebookuser/notebooks
             - name: tmp-pv
               mountPath: /tmp
+      resources: {}
       volumes:
         - name: notebook-pv
           persistentVolumeClaim:
@@ -34,3 +42,4 @@ spec:
         - name: tmp-pv
           persistentVolumeClaim:
             claimName: tmp-pvc
+status: {}
