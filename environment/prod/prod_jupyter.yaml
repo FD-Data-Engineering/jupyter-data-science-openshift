@@ -12,3 +12,12 @@ spec:
       image: "jpacerqueira83/jupyter_datascience:latest-stable-version-2.4.5"
       ports:
         - containerPort: 9003
+      volumeMounts:
+        - name: notebook-pv
+          mountPath: /home/notebookuser/notebooks
+        - name: tmp-pvc
+          mountPath: /tmp
+      volumes:
+        - name: tmp-pv
+          persistentVolumeClaim:
+            claimName: tmp-pvc
