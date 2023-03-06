@@ -23,14 +23,9 @@ spec:
             - containerPort: 9003
           resources: {}
           volumeMounts:
-            - name: notebook-pv
-              mountPath: /home/notebookuser
             - name: tmp-pv
               mountPath: /tmp
       volumes:
-        - name: notebook-pv
-          persistentVolumeClaim:
-            claimName: notebook-pvc
         - name: tmp-pv
           persistentVolumeClaim:
             claimName: tmp-pvc
