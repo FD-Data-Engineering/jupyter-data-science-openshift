@@ -24,7 +24,7 @@ spec:
           resources: {}
           volumeMounts:
             - name: notebook-pv
-              mountPath: /home/notebookuser/notebooks
+              mountPath: /home/notebookuser
             - name: tmp-pv
               mountPath: /tmp
       volumes:
