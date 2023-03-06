@@ -15,9 +15,12 @@ spec:
       volumeMounts:
         - name: notebook-pv
           mountPath: /home/notebookuser/notebooks
-        - name: tmp-pvc
+        - name: tmp-pv
           mountPath: /tmp
       volumes:
+        - name: notebook-pv
+          persistentVolumeClaim:
+            claimName: notebook-pvc
         - name: tmp-pv
           persistentVolumeClaim:
             claimName: tmp-pvc
