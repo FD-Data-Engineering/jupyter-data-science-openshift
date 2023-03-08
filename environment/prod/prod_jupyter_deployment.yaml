@@ -22,10 +22,4 @@ spec:
           ports:
             - containerPort: 9003
           resources: {}
-          volumeMounts:
-            - name: tmp-pv
-              mountPath: /tmp
-      volumes:
-        - name: tmp-pv
-          persistentVolumeClaim:
-            claimName: tmp-pvc
+          
