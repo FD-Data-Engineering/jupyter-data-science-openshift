@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: daily-automation-tmpcleanup
+  namespace: jupyter-data-science
+spec:
+  selector: {}
+  template:
+    metadata:
+      name: daily-automation-tmpcleanup
+    spec:
+      serviceAccountName: jupyter-data-science-svc-acc
+      containers:
+        - name: daily-automation-tmpcleanup
+          image: docker.io/thescomcontainers/daily-automation-tmpcleanup:1.0.2
+          command: ["/bin/sh", /daily-automation-tmpcleanup.sh"]
+      restartPolicy: Never
