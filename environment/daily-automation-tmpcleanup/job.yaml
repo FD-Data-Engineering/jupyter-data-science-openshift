@@ -13,5 +13,6 @@ spec:
       containers:
         - name: daily-automation-tmpcleanup
           image: docker.io/thescomcontainers/daily-automation-tmpcleanup:1.0.2
-          command: ["/bin/sh", /daily-automation-tmpcleanup.sh"]
+          #command: ["/bin/sh", /daily-automation-tmpcleanup.sh"]
+          command: ["/bin/sh", "pwd"]
       restartPolicy: Never
