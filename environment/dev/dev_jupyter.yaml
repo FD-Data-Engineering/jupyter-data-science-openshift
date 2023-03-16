@@ -11,4 +11,4 @@ spec:
     - name: dev-jupyter-data-science
       image: "docker.io/prasadgugulla/datascience:1.0.3"
       ports:
-        - containerPort: 9000
+        - containerPort: 9003

@@ -8,5 +8,5 @@ spec:
     app: dev-jupyter-data-science
   ports:
     - protocol: TCP
-      port: 9000
-      targetPort: 9000
+      port: 9003
+      targetPort: 9003
