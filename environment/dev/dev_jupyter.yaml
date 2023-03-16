@@ -9,6 +9,6 @@ spec:
   serviceAccountName: dev-jupyter-data-science-svc-acc
   containers:
     - name: dev-jupyter-data-science
-      image: "docker.io/prasadgugulla/datascience:1.0.2"
+      image: "docker.io/prasadgugulla/datascience:1.0.3"
       ports:
-        - containerPort: 9003
+        - containerPort: 9000
