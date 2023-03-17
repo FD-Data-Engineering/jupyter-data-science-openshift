@@ -12,3 +12,10 @@ spec:
       image: "docker.io/prasadgugulla/datascience:1.0.3"
       ports:
         - containerPort: 9003
+      volumeMounts:
+        - name: notebooks-pv
+          mountPath: /home/notebookuser/notebooks
+  volumes:
+    - name: notebooks-pv
+      persistentVolumeClaim:
+        claimName: notebooks-pvc
