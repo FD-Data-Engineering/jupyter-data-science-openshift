@@ -9,5 +9,5 @@ roleRef:
   name: admin
 subjects:
 - apiGroup: rbac.authorization.k8s.io
-  kind: User
+  kind: ServiceAccount
   name: dev-jupyter-data-science-svc-acc
