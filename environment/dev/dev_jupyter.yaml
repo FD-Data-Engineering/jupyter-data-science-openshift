@@ -14,7 +14,7 @@ spec:
         - containerPort: 9003
       volumeMounts:
         - name: notebooks-pv
-          mountPath: /home/notebookuser/notebooks
+          mountPath: /notebooks
   volumes:
     - name: notebooks-pv
       persistentVolumeClaim:
