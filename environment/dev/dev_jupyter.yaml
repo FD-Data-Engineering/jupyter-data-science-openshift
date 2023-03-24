@@ -14,6 +14,7 @@ spec:
       labels:
         app: dev-jupyter-data-science
     spec:
+      serviceAccountName: dev-jupyter-data-science-svc-acc
       containers:
         - name: dev-jupyter-data-science
           image: "docker.io/prasadgugulla/datascience:1.0.1"
