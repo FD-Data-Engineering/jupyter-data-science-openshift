@@ -4,7 +4,7 @@ metadata:
   name: example
   namespace: dev-jupyter-data-science
 spec:
-  serviceAccountName: dev-jupyter-data-science-svc-acc
+  #serviceAccountName: dev-jupyter-data-science-svc-acc
   selector:
     matchLabels:
       app: dev-jupyter-data-science
