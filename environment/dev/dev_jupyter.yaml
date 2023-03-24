@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: dev-jupyter-data-science
-  labels:
-    app: dev-jupyter-data-science
+  name: example
   namespace: dev-jupyter-data-science
 spec:
   serviceAccountName: dev-jupyter-data-science-svc-acc
-  containers:
-    - name: dev-jupyter-data-science
-      image: "docker.io/prasadgugulla/datascience:1.0.1"
-      ports:
-        - containerPort: 9003
-      volumeMounts:
-        - name: notebooks-pv
-          mountPath: /home/notebookuser/notebooks-pv
-  volumes:
-    - name: notebooks-pv
-      persistentVolumeClaim:
-        claimName: notebooks-pvc
+  selector:
+    matchLabels:
+      app: dev-jupyter-data-science
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: dev-jupyter-data-science
+    spec:
+      containers:
+        - name: dev-jupyter-data-science
+          image: "docker.io/prasadgugulla/datascience:1.0.1"
+          ports:
+            - containerPort: 9003
