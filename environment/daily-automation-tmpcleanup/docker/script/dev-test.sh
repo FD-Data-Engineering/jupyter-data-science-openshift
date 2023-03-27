@@ -7,4 +7,20 @@ oc exec $pod_name -- bash -c '
         sleep 5
         echo "Established connection to '$pod_name'"
         pwd
+        mkdir /notebooks-pv/"$(date +"%d-%m-%Y")"
+
+        cp -r /home/notebookuser /notebooks-pv/"$(date +"%d-%m-%Y")"/
+
+        find /notebooks-pv/* -mtime +1 -exec rm {} \;
 '
+
+
+
+
+
+
+
+
+
+
+
