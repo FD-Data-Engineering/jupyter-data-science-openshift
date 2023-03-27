@@ -11,7 +11,7 @@ spec:
     - name: dev-jupyter-data-science
       image: "docker.io/prasadgugulla/datascience:1.0.6"
       ports:
-        - containerPort: 9003
+        - containerPort: 9004
       volumeMounts:
         - name: notebooks-pv
           mountPath: /notebooks-pv

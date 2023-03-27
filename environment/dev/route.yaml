@@ -13,7 +13,7 @@ spec:
     name: dev-jupyter-data-science
     weight: 100
   port:
-    targetPort: 9003
+    targetPort: 9004
   tls:
     termination: edge
     certificate: |
