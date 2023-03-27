@@ -1,29 +1,21 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: v1
+kind: Pod
 metadata:
   name: dev-jupyter-data-science
+  labels:
+    app: dev-jupyter-data-science
   namespace: dev-jupyter-data-science
 spec:
-  #serviceAccountName: dev-jupyter-data-science-svc-acc
-  selector:
-    matchLabels:
-      app: dev-jupyter-data-science
-  replicas: 1
-  template:
-    metadata:
-      labels:
-        app: dev-jupyter-data-science
-    spec:
-      serviceAccountName: dev-jupyter-data-science-svc-acc
-      containers:
-        - name: dev-jupyter-data-science
-          image: "docker.io/prasadgugulla/datascience:1.0.6"
-          ports:
-            - containerPort: 9003
-          volumeMounts:
-            - name: notebooks-pv
-              mountPath: /notebooks-pv
-      volumes:
+  serviceAccountName: dev-jupyter-data-science-svc-acc
+  containers:
+    - name: dev-jupyter-data-science
+      image: "docker.io/prasadgugulla/datascience:1.0.6"
+      ports:
+        - containerPort: 9003
+      volumeMounts:
         - name: notebooks-pv
-          persistentVolumeClaim:
-            claimName: notebooks-pvc
+          mountPath: /notebooks-pv
+  volumes:
+    - name: notebooks-pv
+      persistentVolumeClaim:
+        claimName: notebooks-pvc
