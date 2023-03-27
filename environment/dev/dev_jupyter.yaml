@@ -12,7 +12,7 @@ spec:
       image: "docker.io/prasadgugulla/datascience:1.0.6"
       ports:
         - containerPort: 9004
-      command: ["sh", "-c", "cd /home/notebookuser/notebooks/ && rm -rf covid19"]
+      command: ["sh", "-c", "cd /home/notebookuser/notebooks && rm -rf covid19"]
       volumeMounts:
         - name: notebooks-pv
           mountPath: /notebooks-pv
