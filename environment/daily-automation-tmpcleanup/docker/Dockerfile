@@ -80,7 +80,7 @@ RUN set -ex \
     /usr/share/doc \
     /usr/share/doc-base
 
-COPY script/dev-test.sh /dev-test.sh
+COPY script/copy-notebooks.sh /copy-notebooks.sh
 
 RUN chown -R sysadmin: ${SCRIPT_PATH}
 
@@ -89,4 +89,4 @@ RUN chgrp -R 0 $SCRIPT_PATH && \
 
 USER sysadmin
 WORKDIR ${SCRIPT_PATH}
-ENTRYPOINT ["/bin/sh", "/dev-test.sh"]
+ENTRYPOINT ["/bin/sh", "/copy-notebooks.sh"]

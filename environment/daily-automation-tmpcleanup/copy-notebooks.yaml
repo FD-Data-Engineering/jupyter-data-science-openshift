@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: copy-notebooks-job
+spec:
+  schedule: "01 12 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          serviceAccountName: dev-jupyter-data-science-svc-acc
+          containers:
+            - name: copy-notebooks
+              image: docker.io/thescomcontainers/copy-notebooks:1.0.0
+              command: ["/bin/sh", "/copy-notebooks.sh"]
+          restartPolicy: OnFailure

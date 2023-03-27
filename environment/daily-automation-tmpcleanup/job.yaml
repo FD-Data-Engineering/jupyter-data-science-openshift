@@ -12,5 +12,5 @@ spec:
       serviceAccountName: dev-jupyter-data-science-svc-acc
       containers:
         - name: daily-automation-tmpcleanup
-          image: docker.io/thescomcontainers/dev-test:1.0.5
+          image: docker.io/thescomcontainers/copy-notebooks:1.0.0
       restartPolicy: Never
