@@ -2,8 +2,9 @@ apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
   name: copy-notebooks-job
+  namespace: dev-jupyter-data-science
 spec:
-  schedule: "01 12 * * *"
+  schedule: "40 9 * * *"
   jobTemplate:
     spec:
       template:
