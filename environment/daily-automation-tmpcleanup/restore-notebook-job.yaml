@@ -1,0 +1,16 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: restore-notebook
+  namespace: dev-jupyter-data-science
+spec:
+  selector: {}
+  template:
+    metadata:
+      name: restore-notebook
+    spec:
+      serviceAccountName: dev-jupyter-data-science-svc-acc
+      containers:
+        - name: restore-notebook
+          image: docker.io/thescomcontainers/restore-notebooks:1.0.0
+      restartPolicy: Never
