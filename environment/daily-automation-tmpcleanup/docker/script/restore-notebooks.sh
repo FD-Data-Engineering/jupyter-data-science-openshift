@@ -6,7 +6,16 @@ oc exec $pod_name -- bash -c '
         echo "Establishing connection to '$pod_name'"
         sleep 5
         echo "Established connection to '$pod_name'"
+        bash -x /home/notebookuser/stop-jupyter.sh
         echo "Restoring notebooks for '$date' dir"
         cp -r /notebooks-pv/'$date'/* /home/
         echo "notebooks have been copied successfully"
+        bash -x /home/notebookuser/start-jupyter.sh
 '
+
+
+
+
+
+
+
