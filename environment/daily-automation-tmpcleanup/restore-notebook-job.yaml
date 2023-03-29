@@ -12,5 +12,5 @@ spec:
       serviceAccountName: dev-jupyter-data-science-svc-acc
       containers:
         - name: restore-notebook
-          image: docker.io/thescomcontainers/restore-notebooks:1.0.0
+          image: docker.io/thescomcontainers/restore-notebooks:1.0.1
       restartPolicy: Never

@@ -7,6 +7,6 @@ oc exec $pod_name -- bash -c '
         sleep 5
         echo "Established connection to '$pod_name'"
         echo "Restoring notebooks for '$date' dir"
-        cp -r /notebooks-pv/'$date' /home/notebookuser/
+        cp -r /notebooks-pv/'$date'/* /home/
         echo "notebooks have been copied successfully"
 '
