@@ -9,6 +9,13 @@ spec:
   serviceAccountName: jupyter-data-science-svc-acc
   containers:
     - name: prod-jupyter-data-science
-      image: "jpacerqueira83/jupyter_datascience:latest-stable-version-2.4.5"
+      image: "docker.io/prasadgugulla/datascience:1.0.6"
       ports:
         - containerPort: 9003
+      volumeMounts:
+        - name: prod-notebooks-pv
+          mountPath: /notebooks-pv
+  volumes:
+    - name: prod-notebooks-pv
+      persistentVolumeClaim:
+        claimName: prod-notebooks-pvc

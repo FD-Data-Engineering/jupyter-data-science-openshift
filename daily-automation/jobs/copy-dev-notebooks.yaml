@@ -4,7 +4,7 @@ metadata:
   name: copy-notebooks-job
   namespace: dev-jupyter-data-science
 spec:
-  schedule: '01 11 * * *'
+  schedule: '5 0 * * *'
   jobTemplate:
     spec:
       template:

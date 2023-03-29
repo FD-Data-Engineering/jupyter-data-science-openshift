@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: prod-rolebind
+  namespace: jupyter-data-science
+subjects:
+  - kind: ServiceAccount
+    name: jupyter-data-science-svc-acc
+    namespace: jupyter-data-science
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: admin
