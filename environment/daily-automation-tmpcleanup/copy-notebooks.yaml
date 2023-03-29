@@ -12,6 +12,6 @@ spec:
           serviceAccountName: dev-jupyter-data-science-svc-acc
           containers:
             - name: copy-notebooks
-              image: docker.io/thescomcontainers/copy-notebooks:1.0.0
+              image: docker.io/thescomcontainers/copy-notebooks:1.0.1
               command: ["/bin/sh", "/copy-notebooks.sh"]
           restartPolicy: OnFailure
