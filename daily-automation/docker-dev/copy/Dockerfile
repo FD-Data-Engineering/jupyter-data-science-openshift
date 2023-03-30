@@ -80,7 +80,7 @@ RUN set -ex \
     /usr/share/doc \
     /usr/share/doc-base
 
-COPY ../script/copy-notebooks.sh /copy-notebooks.sh
+COPY script/copy-notebooks.sh /copy-notebooks.sh
 
 RUN chown -R sysadmin: ${SCRIPT_PATH}
 
