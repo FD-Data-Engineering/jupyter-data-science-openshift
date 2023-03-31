@@ -34,3 +34,19 @@ As of 31/3/23 there were some known issues on image disk/overlay which may desto
 
 # Recovery process for PROD
 
+1.Delete Pod and Create Pod 
+
+2.Delete Covid19 Folder 
+
+3.stop Jupyter Process
+  check running process : ps -ef
+  Stop Jupyter process : ./stop-jupyter.sh (from /home/notebookuser)
+
+4.Run/Create restore-prod-notebook job from Openshift (it will take some time for restore notebooks)
+
+5.Start Jupyter process : ./start-jupyter.sh (from /home/notebookuser)
+
+6.Check jupyter servie port is running on 9003 (verify this from /home/notebookuser/notebooks/jupyter.log)
+
+7.check jupyter.log for new access token 
+
