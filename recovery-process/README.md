@@ -4,11 +4,11 @@
 As of 31/3/23 there were some known issues on image disk/overlay which may destroy environment over the time but below procedure helps to recover/fix the environment quickly and run again! 
 
 # Good to aware 
-1.we have initiated daily backups for notebooks, stored in PV (50 GB) and mounted as /notebooks-pv (for both DEV and PROD environments)
+1.Initiated daily backups for notebooks, stored in Persistent Volume(PV) with size 50 GB and mounted as **/notebooks-pv** (for both DEV and PROD environments)
 
-2.Daily backups scheduled with cron job (copy notebook job) and running every day mid night. In case of disaster, with newly implemented process will recover data from last full backup.
+2.Daily backups scheduled with cron job (Dev -> copy-notebooks-job & Prod -> copy-prod-notebooks-job) running everyday mid night. In case of disaster, with newly implemented process will recover data from letest full backup.
 
-3.PV will have only last two full backups (daily backup job will delete backups older than 2 days)
+3.PV will have only last two full backups (Daily backup job will delete backups which is older than 2 days)
 
 4.Data Engineers, Data Scientists should sync-up their work in Git all the time 
 
@@ -16,38 +16,38 @@ As of 31/3/23 there were some known issues on image disk/overlay which may destr
 
 # Recovery process for DEV
 
-1.Delete Pod and Create Pod 
+1.Delete the Data Science Pod and Create Pod(Argo CD automated process) 
 
-2.Delete Covid19 Folder 
+2.Delete /home/notebookuser/notebooks/covid19 directory 
 
-3.stop Jupyter Process
+3.Stop Jupyter Process
   check running process: ps -ef
-  Stop Jupyter process: ./stop-jupyter.sh (from /home/notebookuser)
+  Stop Jupyter process: bash -x /home/notebookuser/stop-jupyter.sh
 
-4.Run/Create restore-prod-notebook job from Openshift (it takes some time for restore notebooks)
+4.Run/Create **restore-notebook** job from Openshift (It takes some time to restore from backup)
 
-5.Start Jupyter process: ./start-jupyter.sh (from /home/notebookuser)
+5.Start Jupyter process: bash -x /home/notebookuser/start-jupyter.sh
 
-6.Start Jupyter process again to ensure jupyter service port is running on **9004** (verify this from /home/notebookuser/notebooks/jupyter.log)
+6.Start Jupyter process again to ensure jupyter service port is running on **9004** (Verify this from /home/notebookuser/notebooks/jupyter.log)
 
-7.check jupyter.log for new access token 
+7.Find new jupyter access token from jupyter.log
 
 # Recovery process for PROD
 
-1.Delete Pod and Create Pod 
+1.Delete the Data Science Pod and Create Pod(Argo CD automated process) 
 
-2.Delete Covid19 Folder 
+2.Delete /home/notebookuser/notebooks/covid19 directory 
 
-3.stop Jupyter Process
+3.Stop Jupyter Process
   check running process: ps -ef
-  Stop Jupyter process: ./stop-jupyter.sh (from /home/notebookuser)
+  Stop Jupyter process: bash -x /home/notebookuser/stop-jupyter.sh
 
-4.Run/Create restore-prod-notebook job from Openshift (it will take some time for restore notebooks)
+4.Run/Create **restore-prod-notebook** job from Openshift (It takes some time to restore from backup)
 
-5.Start Jupyter process: ./start-jupyter.sh (from /home/notebookuser)
+5.Start Jupyter process: bash -x /home/notebookuser/start-jupyter.sh
 
-6.Check jupyter service port is running on **9003** (verify this from /home/notebookuser/notebooks/jupyter.log)
+6.Check jupyter service port is running on **9003** (Verify this from /home/notebookuser/notebooks/jupyter.log)
 
-7.check jupyter.log for new access token 
+7.Find new jupyter access token from jupyter.log
 
 
