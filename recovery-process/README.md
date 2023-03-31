@@ -48,6 +48,6 @@ As of 31/3/23 there were some known issues on image disk/overlay which may destr
 
 6.Check jupyter service port is running on **9003** (Verify this from **/home/notebookuser/notebooks/jupyter.log**)
 
-7.Find new jupyter access token from jupyter.log
+7.Find new jupyter access token from jupyter.log 
 
 
