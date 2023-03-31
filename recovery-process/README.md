@@ -22,13 +22,13 @@ As of 31/3/23 there were some known issues on image disk/overlay which may destr
 
 3.Stop Jupyter Process
   check running process: ps -ef
-  Stop Jupyter process: bash -x /home/notebookuser/stop-jupyter.sh
+  Stop Jupyter process: **bash -x /home/notebookuser/stop-jupyter.sh**
 
 4.Run/Create **restore-notebook** job from Openshift (It takes some time to restore from backup)
 
-5.Start Jupyter process: bash -x /home/notebookuser/start-jupyter.sh
+5.Start Jupyter process: **bash -x /home/notebookuser/start-jupyter.sh**
 
-6.Start Jupyter process again to ensure jupyter service port is running on **9004** (Verify this from /home/notebookuser/notebooks/jupyter.log)
+6.Start Jupyter process again to ensure jupyter service port is running on **9004** (Verify this from **/home/notebookuser/notebooks/jupyter.log**)
 
 7.Find new jupyter access token from jupyter.log
 
@@ -40,13 +40,13 @@ As of 31/3/23 there were some known issues on image disk/overlay which may destr
 
 3.Stop Jupyter Process
   check running process: ps -ef
-  Stop Jupyter process: bash -x /home/notebookuser/stop-jupyter.sh
+  Stop Jupyter process: **bash -x /home/notebookuser/stop-jupyter.sh**
 
 4.Run/Create **restore-prod-notebook** job from Openshift (It takes some time to restore from backup)
 
-5.Start Jupyter process: bash -x /home/notebookuser/start-jupyter.sh
+5.Start Jupyter process: **bash -x /home/notebookuser/start-jupyter.sh**
 
-6.Check jupyter service port is running on **9003** (Verify this from /home/notebookuser/notebooks/jupyter.log)
+6.Check jupyter service port is running on **9003** (Verify this from **/home/notebookuser/notebooks/jupyter.log**)
 
 7.Find new jupyter access token from jupyter.log
 
