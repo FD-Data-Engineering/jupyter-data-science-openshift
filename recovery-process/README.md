@@ -28,7 +28,7 @@ As of 31/3/23 there were some known issues on image disk/overlay which may desto
 
 5.Start Jupyter process : ./start-jupyter.sh (from /home/notebookuser)
 
-6.Start Jupyter process again to ensure jupyter servie port is running on # 9004 # (verify this from /home/notebookuser/notebooks/jupyter.log)
+6.Start Jupyter process again to ensure jupyter servie port is running on **9004** (verify this from /home/notebookuser/notebooks/jupyter.log)
 
 7.check jupyter.log for new access token 
 
@@ -46,7 +46,7 @@ As of 31/3/23 there were some known issues on image disk/overlay which may desto
 
 5.Start Jupyter process : ./start-jupyter.sh (from /home/notebookuser)
 
-6.Check jupyter servie port is running on # 9003 # (verify this from /home/notebookuser/notebooks/jupyter.log)
+6.Check jupyter servie port is running on **9003** (verify this from /home/notebookuser/notebooks/jupyter.log)
 
 7.check jupyter.log for new access token 
 
