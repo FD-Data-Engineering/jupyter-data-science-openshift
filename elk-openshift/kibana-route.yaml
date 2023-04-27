@@ -10,7 +10,7 @@ spec:
     kibana.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud
   to:
     kind: Service
-    name: kibana-service
+    name: kibana
     weight: 100
   port:
     targetPort: 5601
