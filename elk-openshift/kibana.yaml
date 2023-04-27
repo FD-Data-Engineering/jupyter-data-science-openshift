@@ -9,6 +9,6 @@ spec:
   serviceAccountName: elk-svc-acc
   containers:
     - name: kibana
-      image: "docker.io/kibana/kibana:7.16.2"
+      image: "docker.io/elastic/kibana:7.16.2"
       ports:
         - containerPort: 5601
