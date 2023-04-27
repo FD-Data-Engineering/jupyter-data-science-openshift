@@ -7,7 +7,7 @@ metadata:
     app.kubernetes.io/instance: kibana-route
 spec:
   host: >-
-    dev-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud
+    kibana.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud
   to:
     kind: Service
     name: kibana-service
@@ -148,7 +148,7 @@ spec:
 status:
   ingress:
     - host: >-
-         dev-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud
+         kibana.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud
       routerName: default
       conditions:
         - type: Admitted
