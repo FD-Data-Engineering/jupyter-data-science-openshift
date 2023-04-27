@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: logstash-service
+  name: logstash
   namespace: dev-jupyter-data-science
 spec:
   selector:
