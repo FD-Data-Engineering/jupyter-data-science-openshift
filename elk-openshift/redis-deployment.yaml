@@ -1,41 +1,21 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  annotations:
-    kompose.cmd: kompose convert -f docker-compose.yml
-    kompose.version: 1.26.1 (a9d05d509)
-  creationTimestamp: null
-  labels:
-    io.kompose.service: redis
   name: redis
+  labels:
+    app: redis
+  namespace: dev-jupyter-data-science
 spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      io.kompose.service: redis
-  strategy: {}
-  template:
-    metadata:
-      annotations:
-        kompose.cmd: kompose convert -f docker-compose.yml
-        kompose.version: 1.26.1 (a9d05d509)
-      creationTimestamp: null
-      labels:
-        io.kompose.service: redis
-    spec:
-      containers:
-        - image: docker.io/prasadgugulla/redis7:1.0.2
-          name: redis
-          ports:
-            - containerPort: 6379
-          volumeMounts:
-            - name: logstash-pv
-              mountPath: /logstash_dir
-      volumes:
+  #serviceAccountName: dev-jupyter-data-science-svc-acc
+  containers:
+    - name: redis
+      image: "docker.io/prasadgugulla/redis7:1.0.2"
+      ports:
+        - containerPort: 6379
+      volumeMounts:
         - name: logstash-pv
-          persistentVolumeClaim:
-          claimName: logstash-pvc
-
-          resources: {}
-      restartPolicy: Always
-status: {}
+          mountPath: /logstash_dir
+  volumes:
+    - name: logstash-pv
+      persistentVolumeClaim:
+        claimName: logstash-pvc
