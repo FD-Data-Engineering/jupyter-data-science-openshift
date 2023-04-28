@@ -16,9 +16,9 @@ spec:
       ports:
         - containerPort: 9600
       volumeMounts:
-        - name: logstash-pv
-          mountPath: /logstash_dir
+        - name: notebooks-pv
+          mountPath: /notebooks-pv
   volumes:
-    - name: logstash-pv
+    - name: notebooks-pv
       persistentVolumeClaim:
-        claimName: logstash-pvc
+        claimName: notebooks-pvc
