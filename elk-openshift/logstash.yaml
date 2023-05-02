@@ -11,6 +11,8 @@ spec:
     - env:
         - name: LS_JAVA_OPTS
           value: "-Xmx256m -Xms256m"
+        - name: ELASTICSEARCH_URL
+          value: https://8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud:30865
       name: logstash
       image: "prasadgugulla/logstash:7.10.0"
       ports:
