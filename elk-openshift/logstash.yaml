@@ -15,7 +15,7 @@ spec:
       image: "prasadgugulla/logstash:7.10.0"
       ports:
         - containerPort: 9600
-      command: ["logstash -f /logstash.conf"]
+     # command: ["logstash -f /logstash.conf"]
       volumeMounts:
         - name: notebooks-pv
           mountPath: /notebooks-pv
