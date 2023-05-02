@@ -13,7 +13,7 @@ spec:
           value: "-Xmx256m -Xms256m"
       name: logstash
       image: "prasadgugulla/logstash:7.10.0"
-      command: ["logstash -f ./logstash.conf"]
+      command: "logstash -f ./logstash.conf"
       ports:
         - containerPort: 9600
       volumeMounts:
