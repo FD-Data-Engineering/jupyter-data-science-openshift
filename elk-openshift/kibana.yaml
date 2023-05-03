@@ -17,6 +17,8 @@ spec:
             value: fdadmin
           - name: ELASTICSEARCH_PASSWORD
             value: password12
+          - name: XPACK_SECURITY_ENABLED
+            value: true
         name: kibana
         image: "prasadgugulla/kibana:7.10.1"
         ports:
