@@ -18,11 +18,11 @@ spec:
           - name: ELASTICSEARCH_PASSWORD
             value: password12
           - name: XPACK_SECURITY_ENABLED
-            value: true
+            value: "true"
           - name: ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES
             value: "/usr/share/kibana/config/65562368-53e5-4473-99ef-faefeeffd5c9.crt"
           - name: csp_strict
-            value: true
+            value: "true"
         name: kibana
         image: "prasadgugulla/kibana:7.10.1"
         ports:
