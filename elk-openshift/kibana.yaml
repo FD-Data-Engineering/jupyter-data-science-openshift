@@ -27,6 +27,7 @@ spec:
             value: "true"
         name: kibana
         image: "prasadgugulla/kibana:7.10.1"
+        commad: ["./bin/kibana -c /usr/share/kibana/config/kibana.yml"]
         ports:
           - containerPort: 5601
-        commad: ["./bin/kibana -c /usr/share/kibana/config/kibana.yml"]
+        
