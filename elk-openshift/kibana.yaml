@@ -18,6 +18,6 @@ spec:
           - name: ELASTICSEARCH_PASSWORD
             value: password12
         name: kibana
-        image: "docker.io/elastic/kibana:7.10.0"
+        image: "prasadgugulla/kibana:7.10.1"
         ports:
           - containerPort: 5601
