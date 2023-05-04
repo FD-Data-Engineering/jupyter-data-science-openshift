@@ -13,18 +13,16 @@ spec:
             #value: "https:fdadmin:password12//8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud:30865"
           - name: ELASTICSEARCH_HOSTS
             value: "https://8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud"
-          - name: port
-            value: "30865"
-          - name: ELASTICSEARCH_USERNAME
-            value: fdadmin
-          - name: ELASTICSEARCH_PASSWORD
-            value: password12
-          - name: XPACK_SECURITY_ENABLED
-            value: "true"
-          - name: ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES
-            value: "/usr/share/kibana/config/65562368-53e5-4473-99ef-faefeeffd5c9.crt"
-          - name: csp_strict
-            value: "true"
+          #- name: ELASTICSEARCH_USERNAME
+            #value: fdadmin
+          #- name: ELASTICSEARCH_PASSWORD
+            #value: password12
+          #- name: XPACK_SECURITY_ENABLED
+           # value: "true"
+          #- name: ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES
+           # value: "/usr/share/kibana/config/65562368-53e5-4473-99ef-faefeeffd5c9.pem"
+          #- name: csp_strict
+           # value: "true"
         name: kibana
         image: "prasadgugulla/kibana:7.10.2"
         ports:
