@@ -11,8 +11,8 @@ spec:
       - env:
           #- name: ELASTICSEARCH_URL
             #value: "https:fdadmin:password12//8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud:30865"
-          - name: ELASTICSEARCH_HOSTS
-            value: "https://8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud"
+          #- name: ELASTICSEARCH_HOSTS
+           # value: "https://8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud"
           #- name: ELASTICSEARCH_USERNAME
             #value: fdadmin
           #- name: ELASTICSEARCH_PASSWORD
@@ -24,7 +24,7 @@ spec:
           #- name: csp_strict
            # value: "true"
         name: kibana
-        image: "prasadgugulla/kibana:7.10.2"
+        image: "prasadgugulla/kibana:7.10.3"
         ports:
           - containerPort: 5601
         #command: ["./bin/kibana -c /usr/share/kibana/config/kibana.yml"]
