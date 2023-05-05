@@ -23,6 +23,8 @@ spec:
           value: "false"
         - name: discovery.type
           value: "single-node"
+        - name: path.data
+          value: "/elastic-pv/data"
       name: elastic
       image: "prasadgugulla/elastic:7.16.2"
       ports:
