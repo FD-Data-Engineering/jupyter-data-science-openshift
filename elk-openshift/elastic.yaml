@@ -12,7 +12,7 @@ spec:
         - name: LS_JAVA_OPTS
           value: "-Xmx256m -Xms256m"
       name: elastic
-      image: "elasticsearch:7.10.2"
+      image: "elasticsearch:7.16.2"
       ports:
         - containerPort: 9200
       volumeMounts:
