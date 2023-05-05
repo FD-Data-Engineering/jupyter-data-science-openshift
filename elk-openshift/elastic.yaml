@@ -10,7 +10,7 @@ spec:
   containers:
     - env:
         - name: LS_JAVA_OPTS
-          value: "-Xmx256m -Xms256m"
+          value: "-Xmx1024m -Xms1024m"
         - name: network.host
           value: "0.0.0.0"
         - name: http.port
