@@ -13,9 +13,9 @@ spec:
       ports:
         - containerPort: 6379
       volumeMounts:
-        - name: logstash-pv
-          mountPath: /logstash_dir
+        - name: elastic-pv
+          mountPath: /elastic-pv
   volumes:
-    - name: logstash-pv
+    - name: elastic-pv
       persistentVolumeClaim:
-        claimName: logstash-pvc
+        claimName: elastic-pvc
