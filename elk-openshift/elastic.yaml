@@ -17,6 +17,8 @@ spec:
           value: "9200"
         - name: bootstrap.memory_lock
           value: "true"
+        - name: cluster.name
+          value: "elk-cluster"
         - name: xpack.security.enabled
           value: "false"
       name: elastic
