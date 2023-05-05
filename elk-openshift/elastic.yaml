@@ -21,6 +21,8 @@ spec:
           value: "elk-cluster"
         - name: xpack.security.enabled
           value: "false"
+        - name: discovery.typ
+          value: "single-node"
       name: elastic
       image: "prasadgugulla/elastic:7.16.2"
       ports:
