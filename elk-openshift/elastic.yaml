@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: elastic
+  labels:
+    app: elastic
+  namespace: dev-jupyter-data-science
+spec:
+  serviceAccountName: elk-svc-acc
+  containers:
+    - env:
+        - name: LS_JAVA_OPTS
+          value: "-Xmx256m -Xms256m"
+      name: elastic
+      image: "elasticsearch:7.10.2"
+      ports:
+        - containerPort: 9200
+      volumeMounts:
+        - name: elastic-pv
+          mountPath: /elastic-pv
+  volumes:
+    - name: elastic-pv
+      persistentVolumeClaim:
+        claimName: elastic-pvc
