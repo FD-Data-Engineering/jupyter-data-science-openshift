@@ -15,10 +15,10 @@ spec:
       image: "elasticsearch:7.16.2"
       ports:
         - containerPort: 9200
-      volumeMounts:
-        - name: elastic-pv
-          mountPath: /elastic-pv
-  volumes:
-    - name: elastic-pv
-      persistentVolumeClaim:
-        claimName: elastic-pvc
+     # volumeMounts:
+      #  - name: elastic-pv
+       #   mountPath: /elastic-pv
+  #volumes:
+   # - name: elastic-pv
+    #  persistentVolumeClaim:
+     #   claimName: elastic-pvc
