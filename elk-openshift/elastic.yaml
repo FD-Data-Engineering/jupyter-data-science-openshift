@@ -11,6 +11,14 @@ spec:
     - env:
         - name: LS_JAVA_OPTS
           value: "-Xmx256m -Xms256m"
+        - name: network.host
+          value: 0.0.0.0
+        - name: http.port
+          value: 9200
+        - name: bootstrap.memory_lock
+          value: "true"
+        - name: xpack.security.enabled
+          value: "false"
       name: elastic
       image: "prasadgugulla/elastic:7.16.2"
       ports:
