@@ -6,7 +6,7 @@ metadata:
     app: elastic
   namespace: dev-jupyter-data-science
 spec:
-  serviceAccountName: elk-svc-acc
+  #serviceAccountName: elk-svc-acc
   containers:
     - env:
         - name: LS_JAVA_OPTS
