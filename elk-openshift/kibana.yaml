@@ -29,6 +29,12 @@ spec:
             value: "true"
           - name: SERVER_HOST
             value: "0.0.0.0"
+          - name: xpack.encryptedSavedObjects.encryptionKey
+            value: "6259fd26f5e8ffcb1adecdda95ad1ba3"
+          - name: xpack.reporting.encryptionKey
+            value: "b6e12e1e0de2fe00b60489ed09c5339f"
+          - name: xpack.security.encryptionKey
+            value: "007e35b6730fdaaaaf2f85dddc24043b"
         name: kibana
         image: "prasadgugulla/kibana:7.16.3"
         ports:
