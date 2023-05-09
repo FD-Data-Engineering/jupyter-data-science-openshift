@@ -21,7 +21,7 @@ spec:
           value: "elk-cluster"
         - name: xpack.security.enabled
           value: "true"
-        - name: xpack.security.http.ssl.enabled
+        - name: xpack.security.https.ssl.enabled
           value: "true"
         - name: xpack.security.http.ssl.keystore.path
           value: "/usr/share/elasticsearch/config/http.p12"
