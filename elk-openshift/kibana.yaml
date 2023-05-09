@@ -12,7 +12,7 @@ spec:
           #- name: ELASTICSEARCH_URL
             #value: "https:fdadmin:password12//8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud:30865"
           - name: ELASTICSEARCH_HOSTS
-            value: "https://8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud"
+            value: "https://8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.private.databases.appdomain.cloud:30865"
           - name: ELASTICSEARCH_USERNAME
             value: fdadmin
           - name: ELASTICSEARCH_PASSWORD
@@ -21,6 +21,8 @@ spec:
             value: "true"
           - name: ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES
             value: "/usr/share/kibana/config/65562368-53e5-4473-99ef-faefeeffd5c9.crt"
+          - name: ELASTICSEARCH_SSL_VERIFICATIONMODE
+            value: "certificate"
           - name: csp_strict
             value: "true"
         name: kibana
