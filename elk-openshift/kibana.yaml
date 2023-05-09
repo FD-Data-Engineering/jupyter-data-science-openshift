@@ -20,8 +20,7 @@ spec:
           - name: XPACK_SECURITY_ENABLED
             value: "true"
           - name: ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES
-            value: "/usr/share/kibana/config/certs/cert"
-            #value: "/usr/share/kibana/config/65562368-53e5-4473-99ef-faefeeffd5c9.crt"
+            value: "/usr/share/kibana/config/65562368-53e5-4473-99ef-faefeeffd5c9.crt"
           - name: ELASTICSEARCH_SSL_VERIFICATIONMODE
             value: "certificate"
           - name: csp_strict
