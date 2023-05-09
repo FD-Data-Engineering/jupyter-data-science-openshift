@@ -9,8 +9,8 @@ spec:
   serviceAccountName: elk-svc-acc
   containers:
       - env:
-          #- name: ELASTICSEARCH_URL
-            #value: "https:fdadmin:password12//8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud:30865"
+          - name: ELASTICSEARCH_URL
+            value: "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud:9200"
           - name: ELASTICSEARCH_HOSTS
             value: "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud"
           - name: ELASTICSEARCH_USERNAME
