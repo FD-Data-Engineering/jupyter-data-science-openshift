@@ -12,15 +12,15 @@ spec:
           #- name: ELASTICSEARCH_URL
             #value: "https:fdadmin:password12//8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.databases.appdomain.cloud:30865"
           - name: ELASTICSEARCH_HOSTS
-            value: "https://8dbb924d-0278-4dc4-9311-1b0a463be046.btdl9c3f09gqti6k4svg.private.databases.appdomain.cloud:30865"
+            value: "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud:9200"
           - name: ELASTICSEARCH_USERNAME
-            value: fdadmin
+            value: elastic
           - name: ELASTICSEARCH_PASSWORD
             value: password12
           - name: XPACK_SECURITY_ENABLED
             value: "true"
           - name: ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES
-            value: "/usr/share/kibana/config/65562368-53e5-4473-99ef-faefeeffd5c9.crt"
+            value: "/usr/share/kibana/config/elasticsearch-ca.pem"
           - name: ELASTICSEARCH_SSL_VERIFICATIONMODE
             value: "certificate"
           - name: csp_strict
@@ -28,7 +28,7 @@ spec:
           - name: SERVER_HOST
             value: "0.0.0.0"
         name: kibana
-        image: "prasadgugulla/kibana:7.10.3"
+        image: "prasadgugulla/kibana:7.16.3"
         ports:
           - containerPort: 5601
         #command: ["./bin/kibana -c /usr/share/kibana/config/kibana.yml"]
