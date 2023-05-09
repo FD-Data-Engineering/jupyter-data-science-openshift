@@ -19,6 +19,8 @@ spec:
             value: password12
           - name: XPACK_SECURITY_ENABLED
             value: "true"
+          - name: xpack.security.transport.ssl.enabled
+            value: "true"
           - name: ELASTICSEARCH_SSL_CERTIFICATEAUTHORITIES
             value: "/usr/share/kibana/config/elasticsearch-ca.pem"
           - name: ELASTICSEARCH_SSL_VERIFICATIONMODE
