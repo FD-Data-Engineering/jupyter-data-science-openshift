@@ -20,7 +20,7 @@ spec:
         - name: cluster.name
           value: "elk-cluster"
         - name: xpack.security.enabled
-          value: "false"
+          value: "true"
         - name: xpack.security.http.ssl.enabled
           value: "true"
         - name: xpack.security.http.ssl.keystore.path
