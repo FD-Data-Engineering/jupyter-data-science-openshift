@@ -9,12 +9,12 @@ spec:
   serviceAccountName: elk-svc-acc
   containers:
       - env:
-          #- name: ELASTICSEARCH_URL
-           # value: "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud:9200"
-          - name: ELASTICSEARCH_HOSTS
+          - name: ELASTICSEARCH_URL
             value: "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud"
+          #- name: ELASTICSEARCH_HOSTS
+           # value: "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud"
           - name: ELASTICSEARCH_USERNAME
-            value: fdadmin
+            value: elastic
           - name: ELASTICSEARCH_PASSWORD
             value: password12
           - name: XPACK_SECURITY_ENABLED
