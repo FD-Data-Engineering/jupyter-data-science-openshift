@@ -13,8 +13,8 @@ spec:
           value: "-Xmx1024m -Xms1024m"
         - name: network.host
           value: "0.0.0.0"
-        - name: http.port
-          value: "9200"
+        #- name: http.port
+         # value: "9200"
         - name: bootstrap.memory_lock
           value: "true"
         - name: cluster.name
