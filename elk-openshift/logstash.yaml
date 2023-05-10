@@ -11,6 +11,8 @@ spec:
     - env:
         - name: LS_JAVA_OPTS
           value: "-Xmx256m -Xms256m"
+        - name: xpack.monitoring.elasticsearch.ssl.verification_mode
+          value: "none"
       name: logstash
       image: "prasadgugulla/logstash:7.16.2"
       ports:
