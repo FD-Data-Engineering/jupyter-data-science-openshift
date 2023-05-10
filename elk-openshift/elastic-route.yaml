@@ -15,7 +15,7 @@ spec:
   port:
     targetPort: 9200
   tls:
-    termination: edge
+    termination: passthrough
     certificate: |
       -----BEGIN CERTIFICATE-----
       MIIGEDCCBPigAwIBAgISAyOLtNZ1znIQvBGz+tQRT6ZQMA0GCSqGSIb3DQEBCwUA
