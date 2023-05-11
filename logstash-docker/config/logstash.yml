@@ -1,5 +1,5 @@
 http.host: "0.0.0.0"
-xpack.monitoring.elasticsearch.hosts: [ "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud" ]
+xpack.monitoring.elasticsearch.hosts: [ "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud:9200" ]
 
 #xpack.monitoring.enabled: "true"
 #elasticsearch.username: "elastic"
@@ -13,6 +13,6 @@ xpack:
     elasticsearch:
       username: "elastic"
       password: "password12"
-      hosts: ["https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud"]
+      hosts: ["https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud:9200"]
       ssl:
         verification_mode: none
