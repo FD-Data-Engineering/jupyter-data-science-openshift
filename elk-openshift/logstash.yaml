@@ -15,6 +15,10 @@ spec:
           value: "none"
         - name: xpack.monitoring.enabled
           value: "true"
+        - name: xpack.monitoring.elasticsearch.username
+          value: "logstash_system"
+        - name: xpack.monitoring.elasticsearch.password
+          value: "l12345"
       name: logstash
       image: "prasadgugulla/logstash:7.16.4"
       ports:
