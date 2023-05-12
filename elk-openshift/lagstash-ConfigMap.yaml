@@ -1,0 +1,49 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: logstash-configmap
+  namespace: dev-jupyter-data-science
+data:
+  logstash.yml: |
+    http.host: "0.0.0.0"
+    path.config: /usr/share/logstash/pipeline
+    xpack.monitoring.elasticsearch.hosts: [ "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud" ]
+    xpack:
+      monitoring:
+        enabled: true
+        elasticsearch:
+          username: "elastic"
+          password: "password12"
+          hosts: ["https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud"]
+          ssl:
+            verification_mode: none
+  logstash.conf: |
+    input {
+    file {
+      codec => "json"
+      path => "/notebooks-pv/logstash/*.json"  
+      start_position => beginning
+    }
+
+    }
+    filter {
+    mutate{
+        rename => { "etrs89_lat" => "latitude" }
+        rename => { "etrs89_long" => "longitude" }
+        convert => {"latitude" => "float"}
+        convert => {"longitude" => "float"}
+        add_field => ["location","%{latitude},%{longitude}"]
+    }
+    }
+
+    output {
+    elasticsearch { 
+        hosts =>"https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud"
+        index => "loanbook_index"
+        ssl => true
+        cacert => "/usr/share/logstash/config/elasticsearch-ca.pem"	
+        user => "elastic"
+        password => "password12"
+      }
+      stdout { codec => rubydebug }
+    }
