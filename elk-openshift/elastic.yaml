@@ -6,38 +6,37 @@ metadata:
   labels:
     k8s-app: elastic
 spec:
-  serviceName: elastic
   replicas: 1
   selector:
     matchLabels:
-      k8s-app: elastic
+      app: elastic
   template:
     metadata:
       labels:
-        k8s-app: elastic
+        app: elastic
     spec:
       serviceAccountName: elk-svc-acc
       containers:
-      - image: elasticsearch:7.16.2
-        name: elastic
-        ports:
-        - containerPort: 9200
-          name: db
-          protocol: TCP
-        volumeMounts:
-        - name: elastic
-          mountPath: /data
-        env:
-        - name: "NAMESPACE"
-          valueFrom:
-            fieldRef:
-              fieldPath: metadata.namespace
+        - image: elasticsearch:7.16.2
+          name: elastic
+          ports:
+            - containerPort: 9200
+              name: db
+              protocol: TCP
+          volumeMounts:
+            - name: elastic
+              mountPath: /data
+          env:
+            - name: "NAMESPACE"
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
       volumes:
-      - name: elastic
-        emptyDir: {}
+        - name: elastic
+          emptyDir: {}
       initContainers:
-      - image: alpine:3.6
-        command: ["/sbin/sysctl", "-w", "vm.max_map_count=262144"]
-        name: elastic-init
-        securityContext:
-          privileged: true
+        - image: alpine:3.6
+          command: ["/sbin/sysctl", "-w", "vm.max_map_count=262144"]
+          name: elastic-init
+          securityContext:
+            privileged: true
