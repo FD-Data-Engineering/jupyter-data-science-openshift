@@ -15,26 +15,21 @@ spec:
     spec:
       serviceAccountName: elk-svc-acc
       containers:
-        - image: elasticsearch:7.16.2
-          name: elastic
+        # - env:
+        #     - name: LS_JAVA_OPTS
+        #       value: "-Xmx256m -Xms256m"
+        #     - name: xpack.monitoring.elasticsearch.ssl.verification_mode
+        #       value: "none"
+        #     - name: xpack.monitoring.enabled
+        #       value: "true"
+        - name: elastic
+          image: docker.io/elastic/elasticsearch:7.16.2
           ports:
             - containerPort: 9200
-              name: db
-              protocol: TCP
           volumeMounts:
-            - name: elastic
-              mountPath: /data
-          env:
-            - name: "NAMESPACE"
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.namespace
+            - name: elastic-pv
+              mountPath: /elastic-pv
       volumes:
-        - name: elastic
-          emptyDir: {}
-      initContainers:
-        - image: alpine:3.6
-          command: ["/sbin/sysctl", "-w", "vm.max_map_count=262144"]
-          name: elastic-init
-          securityContext:
-            privileged: true
+        - name: elastic-pv
+          persistentVolumeClaim:
+            claimName: elastic-pvc
