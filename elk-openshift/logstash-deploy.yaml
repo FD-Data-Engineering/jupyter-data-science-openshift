@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: logstash
-  replicas: 0
+  replicas: 1
   template:
     metadata:
       labels:
@@ -18,7 +18,7 @@ spec:
         - env:
             - name: LS_JAVA_OPTS
               value: "-Xmx256m -Xms256m"
-            - name: xpack.monitoring.elasticsearch.ssl.verification_mode
+            - name: xpack.monitoring.logstashsearch.ssl.verification_mode
               value: "none"
             - name: xpack.monitoring.enabled
               value: "true"
