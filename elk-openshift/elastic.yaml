@@ -3,13 +3,11 @@ kind: Deployment
 metadata:
   name: elastic
   namespace: dev-jupyter-data-science
-  labels:
-    k8s-app: elastic
 spec:
-  replicas: 1
   selector:
     matchLabels:
       app: elastic
+  replicas: 1
   template:
     metadata:
       labels:
