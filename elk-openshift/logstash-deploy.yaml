@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       app: logstash
-  replicas: 1
+  replicas: 0
   template:
     metadata:
       labels:
@@ -23,8 +23,8 @@ spec:
             - name: xpack.monitoring.enabled
               value: "true"
           name: logstash
-          # image: "docker.io/thescomcontainers/logstash:7.16.10"
-          image: "prasadgugulla/logstash:7.16.4"
+          image: "docker.io/thescomcontainers/logstash:7.16.10"
+          # image: "prasadgugulla/logstash:7.16.4"
           ports:
             - containerPort: 9600
           # command: ["logstash -f /logstash.conf"]
