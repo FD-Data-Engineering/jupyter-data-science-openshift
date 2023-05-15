@@ -21,7 +21,7 @@ spec:
             - name: xpack.monitoring.elasticsearch.ssl.verification_mode
               value: "none"
             - name: xpack.monitoring.enabled
-          value: "true"
+              value: "true"
         - name: logstash
           image: docker.io/elastic/logstash:7.16.2
           ports:
