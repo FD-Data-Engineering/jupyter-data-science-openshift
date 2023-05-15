@@ -15,10 +15,6 @@ spec:
           value: "none"
         - name: xpack.monitoring.enabled
           value: "true"
-        - name: XPACK_MONITORING_ELASTICSEARCH_HOSTS
-          value: "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud"
-        - name: XPACK_MONITORING_ELASTICSEARCH_URL
-          value: "https://elastic.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud"
       name: logstash
       image: "docker.io/thescomcontainers/logstash:7.16.10"
       # image: "prasadgugulla/logstash:7.16.4"
