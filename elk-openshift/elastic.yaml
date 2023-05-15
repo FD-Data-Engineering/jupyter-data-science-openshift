@@ -14,14 +14,28 @@ spec:
         app: elastic
     spec:
       serviceAccountName: elk-svc-acc
-      containers:
-        # - env:
-        #     - name: LS_JAVA_OPTS
-        #       value: "-Xmx256m -Xms256m"
-        #     - name: xpack.monitoring.elasticsearch.ssl.verification_mode
-        #       value: "none"
-        #     - name: xpack.monitoring.enabled
-        #       value: "true"
+  containers:
+    - env:
+        - name: LS_JAVA_OPTS
+          value: "-Xmx1024m -Xms1024m"
+        - name: network.host
+          value: "0.0.0.0"
+        #- name: http.port
+        # value: "9200"
+        - name: bootstrap.memory_lock
+          value: "true"
+        - name: cluster.name
+          value: "elk-cluster"
+        - name: xpack.security.enabled
+          value: "false"
+        - name: xpack.security.http.ssl.enabled
+          value: "true"
+        - name: xpack.security.http.ssl.keystore.path
+          value: "/usr/share/elasticsearch/config/http.p12"
+        - name: discovery.type
+          value: "single-node"
+        - name: path.data
+          value: "/elastic-pv/data"
         - name: elastic
           image: "prasadgugulla/elastic:7.16.3"
           ports:
