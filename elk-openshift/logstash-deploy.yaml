@@ -31,7 +31,7 @@ spec:
           volumeMounts:
             - name: notebooks-pv
               mountPath: /notebooks-pv
-    volumes:
-      - name: notebooks-pv
-        persistentVolumeClaim:
-          claimName: notebooks-pvc
+      volumes:
+        - name: notebooks-pv
+          persistentVolumeClaim:
+            claimName: notebooks-pvc
