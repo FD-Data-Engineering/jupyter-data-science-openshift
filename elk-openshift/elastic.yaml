@@ -1,42 +1,45 @@
-apiVersion: v1
-kind: Pod
+apiVersion: apps/v1
+kind: StatefulSet
 metadata:
   name: elastic
-  labels:
-    app: elastic
   namespace: dev-jupyter-data-science
+  labels:
+    k8s-app: elastic
 spec:
-  serviceAccountName: elk-svc-acc
-  containers:
-    - env:
-        - name: LS_JAVA_OPTS
-          value: "-Xmx1024m -Xms1024m"
-        - name: network.host
-          value: "0.0.0.0"
-        #- name: http.port
-         # value: "9200"
-        - name: bootstrap.memory_lock
-          value: "true"
-        - name: cluster.name
-          value: "elk-cluster"
-        - name: xpack.security.enabled
-          value: "false"
-        - name: xpack.security.http.ssl.enabled
-          value: "true"
-        - name: xpack.security.http.ssl.keystore.path
-          value: "/usr/share/elasticsearch/config/http.p12"
-        - name: discovery.type
-          value: "single-node"
-        - name: path.data
-          value: "/elastic-pv/data"
-      name: elastic
-      image: "prasadgugulla/elastic:7.16.3"
-      ports:
+  serviceName: elastic
+  replicas: 1
+  updateStrategy:
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      k8s-app: elastic
+  template:
+    metadata:
+      labels:
+        k8s-app: elastic
+    spec:
+      serviceAccountName: elk-svc-acc
+      containers:
+      - image: elasticsearch:7.16.2
+        name: elastic
+        ports:
         - containerPort: 9200
-      volumeMounts:
-        - name: elastic-pv
-          mountPath: /elastic-pv
-  volumes:
-    - name: elastic-pv
-      persistentVolumeClaim:
-        claimName: elastic-pvc
+          name: db
+          protocol: TCP
+        volumeMounts:
+        - name: elastic
+          mountPath: /data
+        env:
+        - name: "NAMESPACE"
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+      volumes:
+      - name: elastic
+        emptyDir: {}
+      initContainers:
+      - image: alpine:3.6
+        command: ["/sbin/sysctl", "-w", "vm.max_map_count=262144"]
+        name: elastic-init
+        securityContext:
+          privileged: true
