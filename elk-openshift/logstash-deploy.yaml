@@ -28,10 +28,10 @@ spec:
           ports:
             - containerPort: 9600
           # command: ["logstash -f /logstash.conf"]
-      volumeMounts:
-        - name: notebooks-pv
-          mountPath: /notebooks-pv
-  volumes:
-    - name: notebooks-pv
-      persistentVolumeClaim:
-        claimName: notebooks-pvc
+          volumeMounts:
+            - name: notebooks-pv
+              mountPath: /notebooks-pv
+    volumes:
+      - name: notebooks-pv
+        persistentVolumeClaim:
+          claimName: notebooks-pvc
