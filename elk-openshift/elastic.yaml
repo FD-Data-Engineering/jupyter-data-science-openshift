@@ -36,10 +36,12 @@ spec:
           value: "single-node"
         - name: path.data
           value: "/elastic-pv/data"
-        - name: elastic
-          image: "prasadgugulla/elastic:7.16.3"
-          ports:
-            - containerPort: 9200
+
+      image: "prasadgugulla/elastic:7.16.3"
+      name: elastic
+      ports:
+        - containerPort: 9200
+
           volumeMounts:
             - name: elastic-pv
               mountPath: /elastic-pv
