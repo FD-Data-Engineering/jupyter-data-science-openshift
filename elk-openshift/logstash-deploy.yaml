@@ -20,10 +20,10 @@ spec:
 
           ports:
             - containerPort: 9600
-      volumeMounts:
+          volumeMounts:
+            - name: notebooks-pv
+              mountPath: /notebooks-pv
+      volumes:
         - name: notebooks-pv
-          mountPath: /notebooks-pv
-  volumes:
-    - name: notebooks-pv
-      persistentVolumeClaim:
-        claimName: notebooks-pvc
+          persistentVolumeClaim:
+            claimName: notebooks-pvc
