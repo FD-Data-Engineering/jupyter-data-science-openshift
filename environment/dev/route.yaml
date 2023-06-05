@@ -115,7 +115,7 @@ spec:
       he8Y4IWS6wY7bCkjCWDcRQJMEhg76fsO3txE+FiYruq9RUWhiF1myv4Q6W+CyBFC
       Dfvp7OOGAN6dEOM4+qR9sdjoSYKEBpsr6GtPAQw4dy753ec5
       -----END CERTIFICATE-----
-    key: |
+        key: |
       -----BEGIN RSA PRIVATE KEY-----
       MIIEpQIBAAKCAQEA6USOUP9kQRXRyqUjmcJoOklVBmvzY/cL2Aa24luvDjRn6Wr2
       NiME8iyHv988ZmRIMl3Yilyf0lrE/HJaMvlfgPgGApNjbe4n65BER1e0rpND8Q0b
