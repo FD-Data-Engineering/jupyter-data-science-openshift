@@ -1,53 +1,24 @@
-# Jupyter-data-science-OpenShift node recovery process
+# Update certs for OpenShift Routes
 
 # Background 
-As of 31/3/23 there were some known issues on image disk/overlay which may destroy environment over the time but below procedure helps to recover/fix the environment quickly and run again! 
+we need to Update Openshift route certs to make routing service secured, so we need to generate new certs, on expiry if existing ones.
 
-# Good to aware 
-1.Initiated daily backups for notebooks, stored in Persistent Volume(PV) with size 50 GB and mounted as **/notebooks-pv** (for both DEV and PROD environments)
+Right now, we are approaching procedure to use existing Openshift secrets to generate tls.key tls.crt files and replace keys with existing route.yaml files.
 
-2.Daily backups scheduled with cron job (Dev -> copy-notebooks-job & Prod -> copy-prod-notebooks-job) running everyday mid night. In case of disaster, with newly implemented process will recover data from letest full backup.
+# Good to know
+As of now (5th June 2023) current Openshift secrets are renewing for every 90 days/3 months with default value. 
 
-3.PV will have only last two full backups (Daily backup job will delete backups which is older than 2 days)
+# Steps for execution 
+Run from IBM cloud Shell/OC CLI
 
-4.Data Engineers, Data Scientists should sync-up their work in Git all the time 
+1.Extract secrets
+Ex: oc extract <secret name> --to=<file location to save> -n <namespace>
+In our use case this will be something like this 
+**oc extract secret/devsfcluster-56118b4b985711fc98241a723e4ef72a-0000 --to=/home/mpolisetty -n openshift-ingress**
 
-5.There is limitation on size of data for Analysis 
+2.This will generate tls.key tls.crt files in defined location 
 
-# Recovery process for DEV
+3.Redirect to environment (dev/prod (or) relevant route.yaml file where certs need to be renewed) > route.yaml and replace .crt and .key values
 
-1.Delete the Data Science Pod and Create Pod(Argo CD automated process) 
-
-2.Delete /home/notebookuser/notebooks/covid19 directory 
-
-3.Stop Jupyter Process
-  check running process: ps -ef
-  Stop Jupyter process: **bash -x /home/notebookuser/stop-jupyter.sh**
-
-4.Run/Create **restore-notebook** job from Openshift (It takes some time to restore from backup)
-
-5.Start Jupyter process: **bash -x /home/notebookuser/start-jupyter.sh**
-
-6.Start Jupyter process again to ensure jupyter service port is running on **9004** (Verify this from **/home/notebookuser/notebooks/jupyter.log**)
-
-7.Find new jupyter access token from jupyter.log
-
-# Recovery process for PROD
-
-1.Delete the Data Science Pod and Create Pod(Argo CD automated process) 
-
-2.Delete /home/notebookuser/notebooks/covid19 directory 
-
-3.Stop Jupyter Process
-  check running process: ps -ef
-  Stop Jupyter process: **bash -x /home/notebookuser/stop-jupyter.sh**
-
-4.Run/Create **restore-prod-notebook** job from Openshift (It takes some time to restore from backup)
-
-5.Start Jupyter process: **bash -x /home/notebookuser/start-jupyter.sh**
-
-6.Check jupyter service port is running on **9003** (Verify this from **/home/notebookuser/notebooks/jupyter.log**)
-
-7.Find new jupyter access token from jupyter.log 
-
+4.Git push > Argo CD auto sync will do continuous delivery and update certs (IF Auto sync not enabled then do manual prune and force from Argo CD)
 
