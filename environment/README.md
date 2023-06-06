@@ -13,7 +13,7 @@ Run from IBM cloud Shell/OC CLI
 
 1.Extract secrets example
 
-**oc extract <secretname> --to=<filelocationtosave> -n <namespace>**
+**oc extract secret/name --to=filelocationtosave -n namespace**
 
 In our use case this will be something like this 
 **oc extract secret/devsfcluster-56118b4b985711fc98241a723e4ef72a-0000 --to=/home/mpolisetty -n openshift-ingress**
