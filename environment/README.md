@@ -12,7 +12,8 @@ As of now (5th June 2023) current Openshift secrets are renewing for every 90 da
 Run from IBM cloud Shell/OC CLI
 
 1.Extract secrets
-Ex: oc extract <secret name> --to=<file location to save> -n <namespace>
+Ex: oc extract <secretname> --to=<filelocationtosave> -n <namespace>
+
 In our use case this will be something like this 
 **oc extract secret/devsfcluster-56118b4b985711fc98241a723e4ef72a-0000 --to=/home/mpolisetty -n openshift-ingress**
 
