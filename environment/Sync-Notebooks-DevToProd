@@ -1,27 +1,35 @@
 
-Login to Dev Jupyter notebook terminal
+# This is step by step process (Manual) to Sync notebooks form DEV environment to PROD 
 
-Go to #cd /home/notebookuser/
+# Good to Know (as of 7th June 23)
+1.All Engineers should use DEV environment for deployment and updates
+2.Every week wednesday and Friday below steps will be performed to sync notebooks from DEV to PROD 
 
-Run the below command 
+# Steps
 
-#tar -zcvf notebooks-Dev_bkp_3105.tar.gz notebooks
+1.Login to **Dev** Jupyter notebook terminal - https://dev-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
 
-Move the notebooks-Dev_bkp_2205.tar.gz file to /home/notebookuser/notebooks
+2.Go to #cd /home/notebookuser/
 
-#mv notebooks-Dev_bkp_2205.tar.gz file  /home/notebookuser/notebooks
+3.Run the below command 
 
-Download notebooks-Dev_bkp_3105.tar.gz file from https://dev-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
+#tar -zcvf notebooks-Dev_bkp_**Date**.tar.gz notebooks
 
-Upload notebooks-Dev_bkp_2205.tar.gz file to Prod https://prod-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
+4.Move the notebooks backup file to /home/notebookuser/notebooks
 
+#mv notebooks-Dev_bkp_**Date**.tar.gz file  /home/notebookuser/notebooks
+
+5.Download notebooks-Dev_bkp_**Date**.tar.gz file from https://dev-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
+
+#backup.gz file eists in notebook main page
+
+6.Login to **PROD** Jupyter notebook terminal and upload **DEV** backup 
+
+#Upload notebooks-Dev_bkp_**Date**.tar.gz file to **PROD** - https://prod-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
+
+7.**For safer side please take notebooks backup on Prod as well!**
+ 
 Login to Prod Jupyter notebook terminal
-
-Go to /home/notebookuser/notebooks and move the notebooks-Dev_bkp_3105.tar.gz file to /notebooks-pv/
-
-#cd /home/notebookuser/notebooks ; #mv notebooks-Dev_bkp_3105.tar.gz /notebooks-pv/
-
-For safer side please take notebooks backup on Prod as well! Login to Prod Jupyter notebook terminal
 
 Go to cd /home/notebookuser/
 
@@ -31,18 +39,26 @@ Run the below commands
 
 Move the notebooks-Prod_bkp_3105.tar.gz file to /notebooks-pv/
 
-#mv notebooks-Prod_bkp_3105.tar.gz file  /notebooks-pv/
+8.Execute below From **PROD** Jupyter terminal 
+
+Go to /home/notebookuser/notebooks and move the notebooks-Dev_bkp_**Date**.tar.gz file to /notebooks-pv/
+
+#cd /home/notebookuser/notebooks 
+
+#mv notebooks-Dev_bkp_**Date**.tar.gz /notebooks-pv/
 
 Go to /notebooks-pv/
 
 Untar the Dev tar file 
 
-#tar -xvf notebooks-Dev_bkp_3105.tar.gz
+#tar -xvf notebooks-Dev_bkp_**Date**.tar.gz
 
 Go to /notebooks-pv/notebooks and run below commands
 
-#cd /notebooks-pv/notebooks ; #rm -r crontab nohup.out jupyter.log
+#cd /notebooks-pv/notebooks ; 
+
+#rm -r crontab nohup.out jupyter.log
 
 Move /notebooks-pv/notebooks to /home/notebookuser/
 
-Verify new Dev files on Prod node
+Verify new Dev files on Prod node from UI 
