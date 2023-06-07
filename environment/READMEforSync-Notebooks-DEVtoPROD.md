@@ -13,19 +13,19 @@
 
 3.Run the below command 
 
-#tar -zcvf notebooks-Dev_bkp_**Date**.tar.gz notebooks
+#tar -zcvf notebooks-**Dev**_bkp_**Date**.tar.gz notebooks
 
 4.Move the notebooks backup file to /home/notebookuser/notebooks
 
-#mv notebooks-Dev_bkp_**Date**.tar.gz file  /home/notebookuser/notebooks
+#mv notebooks-**Dev**_bkp_**Date**.tar.gz file  /home/notebookuser/notebooks
 
-5.Download notebooks-Dev_bkp_**Date**.tar.gz file from https://dev-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
+5.Download notebooks-**Dev**_bkp_**Date**.tar.gz file from https://dev-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
 
 #backup.gz file eists in notebook main page
 
 6.Login to **PROD** Jupyter notebook terminal and upload **DEV** backup 
 
-#Upload notebooks-Dev_bkp_**Date**.tar.gz file to **PROD** - https://prod-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
+#Upload notebooks-**Dev**_bkp_**Date**.tar.gz file to **PROD** - https://prod-jupyter-data-science.devsfcluster-56118b4b985711fc98241a723e4ef72a-0000.eu-de.containers.appdomain.cloud/
 
 7.**For safer side please take notebooks backup on Prod as well!**
  
@@ -35,23 +35,23 @@ Go to cd /home/notebookuser/
 
 Run the below commands 
 
-#cd /home/notebookuser/ ; #tar -zcvf notebooks-Prod_bkp_3105.tar.gz notebooks
+#cd /home/notebookuser/ ; #tar -zcvf notebooks-**Prod**_bkp_**Date**.tar.gz notebooks
 
-Move the notebooks-Prod_bkp_3105.tar.gz file to /notebooks-pv/
+Move the notebooks-**Prod**_bkp_**Date**.tar.gz file to /notebooks-pv/
 
 8.Execute below From **PROD** Jupyter terminal 
 
-Go to /home/notebookuser/notebooks and move the notebooks-Dev_bkp_**Date**.tar.gz file to /notebooks-pv/
+Go to /home/notebookuser/notebooks and move the notebooks-**Dev**_bkp_**Date**.tar.gz file to /notebooks-pv/
 
 #cd /home/notebookuser/notebooks 
 
-#mv notebooks-Dev_bkp_**Date**.tar.gz /notebooks-pv/
+#mv notebooks-**Dev**_bkp_**Date**.tar.gz /notebooks-pv/
 
 Go to /notebooks-pv/
 
 Untar the Dev tar file 
 
-#tar -xvf notebooks-Dev_bkp_**Date**.tar.gz
+#tar -xvf notebooks-**Dev**_bkp_**Date**.tar.gz
 
 Go to /notebooks-pv/notebooks and run below commands
 
